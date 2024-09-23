@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALISIEX BOIS - Qualité Bois à Vendre</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+            box-sizing: border-box;
+            background: url('wood-texture.jpg') no-repeat center center fixed;
+            background-size: cover;
+        }
+        
+        header {
+            background-color: rgba(44, 62, 80, 0.8);
+            padding: 40px 0;
+            text-align: center;
+            color: #f39c12;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+        }
+        .title {
+            font-size: 60px;
+            font-weight: bold;
+            margin: 0;
+        }
+        .subtitle {
+            font-size: 30px;
+            font-style: italic;
+            color: #ecf0f1;
+        }
+
+        .main-content {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            padding: 40px 20px;
+        }
+        .image-container {
+            position: relative;
+            width: 250px;
+            height: 180px;
+            margin: 20px;
+            overflow: hidden;
+            border-radius: 15px;
+            transition: transform 0.3s ease;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+        }
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+        .image-container:hover {
+            transform: translateY(-10px);
+        }
+        .overlay {
+            position: absolute;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.7);
+            color: #f1c40f;
+            width: 100%;
+            text-align: center;
+            padding: 10px;
+            font-size: 22px;
+            border-radius: 0 0 15px 15px;
+        }
+
+        footer {
+            background-color: rgba(44, 62, 80, 0.9);
+            padding: 20px;
+            text-align: center;
+            color: white;
+            margin-top: 40px;
+        }
+        .contact {
+            font-size: 35px;
+            font-weight: bold;
+            color: white;
+        }
+        .email {
+            font-size: 25px;
+            color: #f39c12;
+        }
+
+        .special-message {
+            font-size: 45px;
+            color: #27ae60;
+            font-weight: bold;
+            text-align: center;
+            margin-top: 50px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        .availability-message {
+            font-size: 25px;
+            color: white;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        /* Modal styling */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 100;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            justify-content: center;
+            align-items: center;
+        }
+        .modal-content {
+            max-width: 80%;
+            max-height: 80%;
+            position: relative;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+        }
+        .modal-close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            font-size: 40px;
+            color: #f1f1f1;
+            cursor: pointer;
+            padding: 10px;
+            background-color: rgba(0, 0, 0, 0.5);
+        }
+        .modal-prev {
+            left: 10px;
+        }
+        .modal-next {
+            right: 10px;
+        }
+        
+        /* Delivery message */
+        .delivery-message {
+            text-align: center;
+            font-size: 35px; /* Increased font size */
+            color: purple; /* Text color changed to purple */
+            font-weight: bold;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header section -->
+    <header>
+        <div class="title">ALISIEX BOIS</div>
+        <div class="subtitle">Votre fournisseur de bois de qualité à Ales, France</div>
+    </header>
+
+    <!-- Main content area with images -->
+    <div class="main-content">
+        <div class="image-container">
+            <img src="image1.jpg" alt="Bois 1" onclick="openModal(0)">
+            <div class="overlay">Bois de chauffage coupé en 2 mètres</div>
+        </div>
+        <div class="image-container">
+            <img src="image2.jpg" alt="Bois 2" onclick="openModal(1)">
+            <div class="overlay">Bûches de 50 cm s’adaptent à</div>
+        </div>
+        <div class="image-container">
+            <img src="image3.jpg" alt="Bois 3" onclick="openModal(2)">
+            <div class="overlay">La plupart des appareils de chauffage</div>
+        </div>
+        <div class="image-container">
+            <img src="image4.jpg" alt="Bois 4" onclick="openModal(3)">
+            <div class="overlay">Bois de chêne Sec, prêt à l'emploi..</div>
+        </div>
+        <div class="image-container">
+            <img src="image5.jpg" alt="Bois 5" onclick="openModal(4)">
+            <div class="overlay">Bois Sec De Qualité Supérieure</div>  
+        </div>
+        <div class="image-container">
+            <img src="image6.jpg" alt="Bois 6" onclick="openModal(5)">
+            <div class="overlay">Bois de chêne Sec 100%</div>
+        </div>
+        <div class="image-container">
+            <img src="image7.jpg" alt="Bois 7" onclick="openModal(6)">
+            <div class="overlay">Chauffez grand avec notre bois</div>
+        </div>
+        <div class="image-container">
+            <img src="image8.jpg" alt="Bois 8" onclick="openModal(7)">
+            <div class="overlay">Pour vos besoins volumineux.</div>
+        </div>
+    </div>
+
+    <!-- Delivery message -->
+    <div class="delivery-message">
+        Livraison gratuit jusqu'à 100 km autour d'Ales
+    </div>
+
+    <!-- Modal for full-size image display with navigation -->
+    <div id="imageModal" class="modal">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content">
+            <span class="modal-nav modal-prev" onclick="prevImage()">&#10094;</span>
+            <img id="modalImage" src="">
+            <span class="modal-nav modal-next" onclick="nextImage()">&#10095;</span>
+        </div>
+    </div>
+
+    <!-- Special message -->
+    <div class="special-message">
+        L'élagage des arbres et les espaces verts
+    </div>
+
+    <!-- Availability message -->
+    <div class="availability-message">
+        Nous sommes près de vous jour et nuit
+    </div>
+
+    <!-- Footer section with contact information -->
+    <footer>
+        <div>Contactez-nous pour des bois de qualité :</div>
+        <div class="contact">
+            Téléphone : 
+            <a href="https://wa.me/33700000000" target="_blank" style="color:white;">07 53 92 46 49 (WhatsApp)</a>
+        </div>
+        <div class="email">Email : Kamakamal906@gmail.com</div>
+    </footer>
+
+    <script>
+        var images = [
+            "image1.jpg",
+            "image2.jpg",
+            "image3.jpg",
+            "image4.jpg",
+            "image5.jpg",
+            "image6.jpg",
+            "image7.jpg",
+            "image8.jpg",
+            "image9.jpg",  // Image9 added for modal only
+            "image10.jpg"  // Image10 added for modal only
+        ];
+        var currentIndex = 0;
+
+        function openModal(index) {
+            currentIndex = index;
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImage");
+            modal.style.display = "flex";
+            modalImg.src = images[currentIndex];
+        }
+
+        function closeModal() {
+            document.getElementById("imageModal").style.display = "none";
+        }
+
+        function prevImage() {
+            currentIndex = (currentIndex === 0) ? images.length - 1 : currentIndex - 1;
+            document.getElementById("modalImage").src = images[currentIndex];
+        }
+
+        function nextImage() {
+            currentIndex = (currentIndex === images.length - 1) ? 0 : currentIndex + 1;
+            document.getElementById("modalImage").src = images[currentIndex];
+        }
+    </script>
+</body>
+</html>
+
